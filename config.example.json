@@ -1,0 +1,16 @@
+{
+  "poll_interval": 1.0,
+  "proxy_platforms": "mercari_jp",
+  "proxies": "",
+  "telegram_token": "",
+  "telegram_chat_id": "",
+  "telegram_enabled": false,
+  "discord_webhook_url": "",
+  "discord_enabled": false,
+  "seller_blacklist": "",
+  "bff_enabled": false,
+  "bff_interval": 5.0,
+  "bff_tab_id": "recommend",
+  "homefeed_enabled": false,
+  "homefeed_interval": 5.0
+}
