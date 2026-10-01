@@ -1,0 +1,72 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mercari-monitor"
+version = "3.0.0"
+description = "多平台日淘代购监控系统 — 一键代购/代拍 + 订单全流程管理"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [{ name = "Custom Development Team" }]
+keywords = ["mercari", "bunjang", "carousell", "monitor", "yahoo-auctions", "paypay", "fril", "price-drop", "auction", "proxy-purchase", "order-management"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Win32 (MS Windows)",
+    "Environment :: Web Environment",
+    "Intended Audience :: End Users/Desktop",
+    "Operating System :: Microsoft :: Windows",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Internet :: WWW/HTTP",
+]
+dependencies = [
+    "httpx[http2]>=0.27",
+    "curl_cffi>=0.7",
+    "cryptography>=42.0",        # 替换 ecdsa + python-jose，ES256 签名快15倍
+    "Pillow>=10.0",
+    "python-dateutil>=2.9",
+    "plyer>=2.1",
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.32",
+    "passlib[bcrypt]>=1.7",
+]
+
+[project.optional-dependencies]
+gui = []
+web = []
+all = []
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.23",
+    "black>=24.0",
+    "ruff>=0.4",
+    "mypy>=1.10",
+]
+
+[project.scripts]
+mercari-monitor = "src.main:main"
+mercari-web = "run_web:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"src" = ["*.json", "*.md"]
+
+[tool.ruff]
+line-length = 110
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP"]
+ignore = ["E501", "B008"]
+
+[tool.mypy]
+python_version = "3.11"
+ignore_missing_imports = true
+warn_unused_ignores = true
+warn_redundant_casts = true
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
