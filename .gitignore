@@ -23,3 +23,6 @@ AI chat*
 TOKEN_GUIDE.md
 pi-session-*
 config.json
+mercari-monitor-promo/node_modules/
+mercari-monitor-promo/out/
+mercari-monitor-promo/public/bgm_gen.wav
